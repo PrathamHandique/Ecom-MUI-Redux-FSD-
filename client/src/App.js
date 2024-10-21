@@ -6,6 +6,7 @@ import CartPage from './pages/cartPage';
 import AdminPage from './pages/adminPage';
 import RegisterPage from './pages/registerPage';
 import LoginPage from './pages/loginPage';
+import AdminLoginPage from './pages/adminLoginPage';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/adminPage" element={<AdminPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/adminLoginPage" element={<AdminLoginPage />} />
       </Routes>
     </Router>
   );

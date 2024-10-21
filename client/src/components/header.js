@@ -1,5 +1,4 @@
 import React from "react";
-//import { useState } from "react";
 import { AppBar, Toolbar, Typography, Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -8,42 +7,70 @@ import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const isLogin = useSelector((state) => state.auth.isLogin);
+  const adminLogin = useSelector((state) => state.auth.adminLogin);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  // const [value, setValue] = useState();
+
   const handleLogout = () => {
     dispatch(setLogout(false));
     navigate("/login");
   };
+
+  const handleAdminLogout = () => {
+    dispatch(setLogout(false));  // This will handle admin logout, you can add an admin-specific logout action if needed
+    navigate("/login");
+  };
+
   return (
     <AppBar position="static">
       <Toolbar>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           E-Commerce
         </Typography>
-        <Button color="inherit" LinkComponent={Link} to="/">
-          Home
-        </Button>
-        <Button color="inherit" LinkComponent={Link} to="/cartPage">
-          Cart
-        </Button>
-        <Button color="inherit" LinkComponent={Link} to="/adminPage">
-          Admin
-        </Button>
-        {!isLogin && (
+
+        {/* When neither user nor admin is logged in */}
+        {!isLogin && !adminLogin && (
           <>
-            <Button color="inherit" LinkComponent={Link} to="/register">
+            <Button color="inherit" component={Link} to="/register">
               Register
             </Button>
-            <Button color="inherit" LinkComponent={Link} to="/login">
+            <Button color="inherit" component={Link} to="/login">
               Login
+            </Button>
+            <Button color="inherit" component={Link} to="/adminLoginPage">
+              Admin Login
             </Button>
           </>
         )}
-        {isLogin && (
-          <Button color="inherit" onClick={handleLogout}>
-            Logout
-          </Button>
+
+        {/* When a regular user is logged in */}
+        {isLogin && !adminLogin && (
+          <>
+            <Button color="inherit" component={Link} to="/">
+              ProductPage
+            </Button>
+            <Button color="inherit" component={Link} to="/cartPage">
+              Cart
+            </Button>
+            <Button color="inherit" onClick={handleLogout}>
+              Logout
+            </Button>
+          </>
+        )}
+
+        {/* When an admin is logged in */}
+        {adminLogin && (
+          <>
+            <Button color="inherit" component={Link} to="/">
+              ProductPage
+            </Button>
+            <Button color="inherit" component={Link} to="/adminPage">
+              Admin Page
+            </Button>
+            <Button color="inherit" onClick={handleAdminLogout}>
+              Admin Logout
+            </Button>
+          </>
         )}
       </Toolbar>
     </AppBar>

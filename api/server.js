@@ -1,16 +1,18 @@
+const dotenv = require("dotenv");
+dotenv.config();
 const express = require("express");
 const app = express();
 const connectDB = require("./configs/db");
-const dotenv = require("dotenv");
+
 const productRoute = require("./routes/productRoute");
 const userRoute = require("./routes/userRoute");
-//const adminRoute = require("./routes/adminRoute");
-dotenv.config();
+const adminRoute = require("./routes/adminRoute");
+
 connectDB();
 app.use(express.json());
 app.use("/api", productRoute);
 app.use("/api",userRoute);
-//app.use("/api", adminRoute);
+app.use("/api", adminRoute);
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

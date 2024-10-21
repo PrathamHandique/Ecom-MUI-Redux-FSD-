@@ -12,12 +12,12 @@ const authSlice = createSlice({
         setLogout:(state,action)=>{
             state.isLogin=action.payload;
         },
-        setadminLogin:(state,action)=>{
+        setAdminLogin:(state,action)=>{
             state.adminLogin=action.payload;
         },
     }
 });
-export const {setLogin,setLogout,setadminLogin} = authSlice.actions;
+export const {setLogin,setLogout,setAdminLogin} = authSlice.actions;
 export default authSlice.reducer;
 
 

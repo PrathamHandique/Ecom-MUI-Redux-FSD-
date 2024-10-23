@@ -2,25 +2,21 @@ import React from "react";
 import { AppBar, Toolbar, Typography, Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { setLogout } from "../redux/authSlice";
+import { setAdminLogin, setLogout } from "../redux/authSlice";
 import { useNavigate } from "react-router-dom";
-
 const Header = () => {
   const isLogin = useSelector((state) => state.auth.isLogin);
   const adminLogin = useSelector((state) => state.auth.adminLogin);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   const handleLogout = () => {
     dispatch(setLogout(false));
     navigate("/login");
   };
-
   const handleAdminLogout = () => {
-    dispatch(setLogout(false));  // This will handle admin logout, you can add an admin-specific logout action if needed
+    dispatch(setAdminLogin(false)); 
     navigate("/login");
   };
-
   return (
     <AppBar position="static">
       <Toolbar>
@@ -46,7 +42,7 @@ const Header = () => {
         {/* When a regular user is logged in */}
         {isLogin && !adminLogin && (
           <>
-            <Button color="inherit" component={Link} to="/">
+            <Button color="inherit" component={Link} to="/pol">
               ProductPage
             </Button>
             <Button color="inherit" component={Link} to="/cartPage">
@@ -61,7 +57,7 @@ const Header = () => {
         {/* When an admin is logged in */}
         {adminLogin && (
           <>
-            <Button color="inherit" component={Link} to="/">
+            <Button color="inherit" component={Link} to="/pol">
               ProductPage
             </Button>
             <Button color="inherit" component={Link} to="/adminPage">

@@ -13,11 +13,11 @@ const App = () => {
     <Router>
       <Header />
       <Routes>
-        <Route path="/" element={<ProductPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/pol" element={<ProductPage />} />
         <Route path="/cartPage" element={<CartPage />} />
         <Route path="/adminPage" element={<AdminPage />} />
         <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} />
         <Route path="/adminLoginPage" element={<AdminLoginPage />} />
       </Routes>
     </Router>

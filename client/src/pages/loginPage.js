@@ -27,7 +27,7 @@ const LoginPage = () => {
       if (response.status === 200) {
         dispatch(setLogin(true));
         alert("User successfully logged in!");
-        navigate("/");
+        navigate("/pol");
       } else {
         alert("Login failed. Please check your credentials.");
       }

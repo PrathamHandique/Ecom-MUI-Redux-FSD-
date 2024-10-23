@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import ProductCart from "../components/productCart";
 import { setProducts } from "../redux/productSlice";
-const baseurl="https://back-uisx.onrender.com/";
+const baseurl="https://back-uisx.onrender.com";
 
 const ProductPage = () => {
   const dispatch = useDispatch();

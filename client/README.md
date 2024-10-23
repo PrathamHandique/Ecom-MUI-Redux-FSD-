@@ -1,3 +1,5 @@
+THe backend live servie on render is at https://bac2.onrender.com/
+The netlify live service is at https://loquacious-daffodil-0d3afa.netlify.app/
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

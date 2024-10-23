@@ -22,6 +22,7 @@ const cors = require('cors');
 
 
 // Allow requests from http://localhost:3000 (your React app)
-app.use(cors({
-  origin: 'http://localhost:3000'
-}));
+// app.use(cors({
+//   origin: 'http://localhost:3000'
+// }));
+app.use(cors());

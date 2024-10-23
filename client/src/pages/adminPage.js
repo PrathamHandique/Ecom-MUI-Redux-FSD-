@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { TextField, Button, Container, Typography } from "@mui/material";
 import axios from "axios";
+const baseurl="https://back-uisx.onrender.com/";
 const AdminProductPage = () => {
   const [product, setProduct] = useState({ name: "", price: "", imageUrl: "" });
   const [submitMessage, setSubmitMessage] = useState("");
@@ -13,7 +14,7 @@ const AdminProductPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/api/create-products", {
+      const response = await axios.post(`${baseurl}/api/create-products`, {
         name: product.name,
         price: product.price,
         image: product.imageUrl,

@@ -4,6 +4,7 @@ import { Box, Typography, TextField, Button } from "@mui/material";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setAdminLogin } from "../redux/authSlice";
+const baseurl="https://back-uisx.onrender.com/";
 const AdminLoginPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ const AdminLoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/api/adminLogin", {
+      const response = await axios.post(`${baseurl}/api/adminLogin`, {
         email: input.email,
         password: input.password,
       });

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import ProductCart from "../components/productCart";
 import { setProducts } from "../redux/productSlice";
+const baseurl="https://back-uisx.onrender.com/";
 
 const ProductPage = () => {
   const dispatch = useDispatch();
@@ -12,7 +13,7 @@ const ProductPage = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("/api/get-products");
+        const response = await axios.get(`${baseurl}/api/get-products`);
         console.log(response.data);
         dispatch(setProducts(response.data));
       } catch (error) {

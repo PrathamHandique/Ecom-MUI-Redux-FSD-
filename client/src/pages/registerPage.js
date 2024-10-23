@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Box, Typography, TextField, Button } from "@mui/material";
 import axios from "axios";
-
+const baseurl="https://back-uisx.onrender.com/";
 
 const RegisterPage = () => {
 
@@ -15,7 +15,7 @@ const RegisterPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const data = await axios.post("/api/register", {name: input.name,email: input.email,password: input.password});
+      const data = await axios.post(`${baseurl}/api/register`, {name: input.name,email: input.email,password: input.password});
       if (data.status === 201) {
         setSubmitMessage("User successfully registered!");
         alert("User successfully registered!");

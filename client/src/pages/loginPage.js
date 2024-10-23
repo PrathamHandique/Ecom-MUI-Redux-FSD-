@@ -4,6 +4,7 @@ import { Box, Typography, TextField, Button } from "@mui/material";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setLogin } from "../redux/authSlice";
+const baseurl="https://back-uisx.onrender.com/";
 const LoginPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/api/login", {
+      const response = await axios.post(`${baseurl}/api/login`, {
         email: input.email,
         password: input.password,
       });

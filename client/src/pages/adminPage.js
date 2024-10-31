@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { TextField, Button, Container, Typography } from "@mui/material";
 import axios from "axios";
-const baseurl="https://bac2.onrender.com";
+//const baseurl="https://bac2.onrender.com";//production
+const baseurl = "http://localhost:4000"; //development
 const AdminProductPage = () => {
   const [product, setProduct] = useState({ name: "", price: "", imageUrl: "" });
   const [submitMessage, setSubmitMessage] = useState("");

@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Box, Typography, TextField, Button } from "@mui/material";
 import axios from "axios";
-const baseurl="https://bac2.onrender.com";
+//const baseurl="https://bac2.onrender.com"; //production
+const baseurl = "http://localhost:4000"; //development
 
 const RegisterPage = () => {
 

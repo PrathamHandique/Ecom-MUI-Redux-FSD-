@@ -14,7 +14,8 @@ connectDB();
 
 // Set up CORS to allow requests from your Netlify app
 app.use(cors({
-  origin: 'https://loquacious-daffodil-0d3afa.netlify.app',  // Change this to the correct frontend URL
+ // origin: 'https://loquacious-daffodil-0d3afa.netlify.app',  // production
+  origin: 'http://localhost:3000',  // development
   methods: 'GET,POST,PUT,DELETE',  // Allow these methods
   credentials: true,  // If you need to allow credentials (like cookies, authorization headers)
 }));
